@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>小技巧——如何查看framework包内的结构 | 七月小筑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文为www.chong2vv.com原创出品，欢迎转载，转载时请注明出处！ 
+我们在做开发的时候经常会使用一些第三方的库，但是这些三方的库大多数时候是打成静态库或者动态库，因此我们无法看到他包含了什么。代码上是无法看到了，那么我们能否看到他包内的结构呢？比如他是否应用了其他东西呢？答案是可以的。
+具体做法如下：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小技巧——如何查看framework包内的结构">
+<meta property="og:url" content="http://www.chong2vv.com/2016/05/23/小技巧——如何查看framework包内的结构/index.html">
+<meta property="og:site_name" content="七月小筑">
+<meta property="og:description" content="本文为www.chong2vv.com原创出品，欢迎转载，转载时请注明出处！ 
+我们在做开发的时候经常会使用一些第三方的库，但是这些三方的库大多数时候是打成静态库或者动态库，因此我们无法看到他包含了什么。代码上是无法看到了，那么我们能否看到他包内的结构呢？比如他是否应用了其他东西呢？答案是可以的。
+具体做法如下：">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201605/23/1463990097_5125.png">
+<meta property="og:image" content="http://img.my.csdn.net/uploads/201605/23/1463990631_5296.png">
+<meta property="og:updated_time" content="2016-05-25T12:33:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小技巧——如何查看framework包内的结构">
+<meta name="twitter:description" content="本文为www.chong2vv.com原创出品，欢迎转载，转载时请注明出处！ 
+我们在做开发的时候经常会使用一些第三方的库，但是这些三方的库大多数时候是打成静态库或者动态库，因此我们无法看到他包含了什么。代码上是无法看到了，那么我们能否看到他包内的结构呢？比如他是否应用了其他东西呢？答案是可以的。
+具体做法如下：">
+<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201605/23/1463990097_5125.png">
+  
+    <link rel="alternative" href="/atom.xml" title="七月小筑" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/dong.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">七月</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">心中无码</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/SQL必知必会笔记">SQL必知必会笔记</a></li>
+				        
+							<li><a href="/tags/基础整理">iOS学习</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/SQLite/" style="font-size: 20px;">SQLite</a> <a href="/tags/SQL必知必会笔记/" style="font-size: 20px;">SQL必知必会笔记</a> <a href="/tags/Swift学习/" style="font-size: 10px;">Swift学习</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/基础整理/" style="font-size: 10px;">基础整理</a> <a href="/tags/小技巧/" style="font-size: 13.33px;">小技巧</a> <a href="/tags/数据库/" style="font-size: 20px;">数据库</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">爱情的巨轮说沉就沉，程序猿的独木舟屹立不倒</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">七月</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/images/dong.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">七月</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">心中无码</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/SQL必知必会笔记">SQL必知必会笔记</a></li>
+		        
+					<li><a href="/tags/基础整理">iOS学习</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-小技巧——如何查看framework包内的结构" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/23/小技巧——如何查看framework包内的结构/" class="article-date">
+  	<time datetime="2016-05-23T07:04:03.000Z" itemprop="datePublished">2016-05-23</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      小技巧——如何查看framework包内的结构
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/小技巧/">小技巧</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/随笔/">随笔</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文为<a href="http://www.chong2vv.com">www.chong2vv.com</a>原创出品，欢迎转载，转载时请注明出处！ </p>
+<p>我们在做开发的时候经常会使用一些第三方的库，但是这些三方的库大多数时候是打成静态库或者动态库，因此我们无法看到他包含了什么。代码上是无法看到了，那么我们能否看到他包内的结构呢？比如他是否应用了其他东西呢？答案是可以的。</p>
+<p>具体做法如下：<br><a id="more"></a></p>
+<p>首先我们先下载一个三方的库，例如笔者下了一个友盟的SDK：</p>
+<p><img src="http://img.my.csdn.net/uploads/201605/23/1463990097_5125.png" alt="友盟"></p>
+<p>然后扔到一个文件夹中（如果下载的为.framework，那么把他修改成.a）</p>
+<p>之后通过控制台进入到该文件夹内，我们可以先通过lipo -info 来查看一下他所支持的架构：</p>
+<pre><code>lipo -info libUMSocial_Sdk_5.2.a 
+</code></pre><p>能看到：</p>
+<pre><code>Architectures in the fat file: libUMSocial_Sdk_5.2.a are: armv7 armv7s i386 x86_64 arm64 
+</code></pre><p>由此可知它所支持的架构为以上几种，接下来我们选择一个架构进行查看，比如arm64.</p>
+<p>同样通过命令行:</p>
+<pre><code>lipo -thin arm64 libUMSocial_Sdk_5.2.a  -o arm64.a
+</code></pre><p>然后可以得到一个支持arm64的.a文件，如图：</p>
+<p><img src="http://img.my.csdn.net/uploads/201605/23/1463990631_5296.png" alt="转换文件"></p>
+<p>之后我们就可以通过命令行解压来查看他内部的结构了，命令行如下：</p>
+<pre><code>ar -x arm64.a
+</code></pre><p>有兴趣的同学可以试一试~</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/23/SQL必知必会学习(三)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《SQL必知必会》学习笔记（三）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/23/SQL必知必会学习(二)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《SQL必知必会》学习笔记（二）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="小技巧——如何查看framework包内的结构" data-title="小技巧——如何查看framework包内的结构" data-url="http://www.chong2vv.com/2016/05/23/小技巧——如何查看framework包内的结构/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 七月
+    	</div>
+      	<div class="footer-right">
+      		若水三千,只取一瓢饮
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

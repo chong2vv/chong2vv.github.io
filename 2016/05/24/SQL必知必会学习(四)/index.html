@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>《SQL必知必会》学习笔记（四） | 七月小筑</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文章为系列文章，是笔者学习《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)一书的笔记，因此文中大量引用了原书内容， 所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv@163.com）,笔者将在第一时间删除。本文旨在研究学习使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《SQL必知必会》学习笔记（四）">
+<meta property="og:url" content="http://www.chong2vv.com/2016/05/24/SQL必知必会学习(四)/index.html">
+<meta property="og:site_name" content="七月小筑">
+<meta property="og:description" content="本文章为系列文章，是笔者学习《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)一书的笔记，因此文中大量引用了原书内容， 所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv@163.com）,笔者将在第一时间删除。本文旨在研究学习使用">
+<meta property="og:updated_time" content="2016-05-25T08:00:37.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《SQL必知必会》学习笔记（四）">
+<meta name="twitter:description" content="本文章为系列文章，是笔者学习《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)一书的笔记，因此文中大量引用了原书内容， 所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv@163.com）,笔者将在第一时间删除。本文旨在研究学习使用">
+  
+    <link rel="alternative" href="/atom.xml" title="七月小筑" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/images/dong.png" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">七月</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">心中无码</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+							<li><a href="/tags/SQL必知必会笔记">SQL必知必会笔记</a></li>
+				        
+							<li><a href="/tags/基础整理">iOS学习</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/SQLite/" style="font-size: 20px;">SQLite</a> <a href="/tags/SQL必知必会笔记/" style="font-size: 20px;">SQL必知必会笔记</a> <a href="/tags/Swift学习/" style="font-size: 10px;">Swift学习</a> <a href="/tags/iOS/" style="font-size: 10px;">iOS</a> <a href="/tags/基础整理/" style="font-size: 10px;">基础整理</a> <a href="/tags/小技巧/" style="font-size: 13.33px;">小技巧</a> <a href="/tags/数据库/" style="font-size: 20px;">数据库</a> <a href="/tags/随笔/" style="font-size: 16.67px;">随笔</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">爱情的巨轮说沉就沉，程序猿的独木舟屹立不倒</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">七月</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/images/dong.png" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">七月</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">心中无码</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+					<li><a href="/tags/SQL必知必会笔记">SQL必知必会笔记</a></li>
+		        
+					<li><a href="/tags/基础整理">iOS学习</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-SQL必知必会学习(四)" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/05/24/SQL必知必会学习(四)/" class="article-date">
+  	<time datetime="2016-05-24T02:42:56.000Z" itemprop="datePublished">2016-05-24</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      《SQL必知必会》学习笔记（四）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLite/">SQLite</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL必知必会笔记/">SQL必知必会笔记</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="本文章为系列文章，是笔者学习《SLQ必知必会》-Ben-Forta-著-人民邮电出版社出版-一书的笔记，因此文中大量引用了原书内容，-所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》-Ben-Forta-著-人民邮电出版社出版-作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv-163-com）-笔者将在第一时间删除。本文旨在研究学习使用，禁止用做商业用途。如有其他媒体、网站或个人从本网下载、连接或以其他形式的复制发表、使用所产生的版权等法律问题本站（本人）均不承担责任。"><a href="#本文章为系列文章，是笔者学习《SLQ必知必会》-Ben-Forta-著-人民邮电出版社出版-一书的笔记，因此文中大量引用了原书内容，-所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》-Ben-Forta-著-人民邮电出版社出版-作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv-163-com）-笔者将在第一时间删除。本文旨在研究学习使用，禁止用做商业用途。如有其他媒体、网站或个人从本网下载、连接或以其他形式的复制发表、使用所产生的版权等法律问题本站（本人）均不承担责任。" class="headerlink" title="本文章为系列文章，是笔者学习《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)一书的笔记，因此文中大量引用了原书内容， 所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv@163.com）,笔者将在第一时间删除。本文旨在研究学习使用，禁止用做商业用途。如有其他媒体、网站或个人从本网下载、连接或以其他形式的复制发表、使用所产生的版权等法律问题本站（本人）均不承担责任。"></a>本文章为系列文章，是笔者学习《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)一书的笔记，因此文中大量引用了原书内容， 所以推荐想系统学习的同学阅读原书。同时本文所涉及的相关知识及内容版权由《SLQ必知必会》(Ben Forta 著 人民邮电出版社出版)作者所有，如涉及作品内容、版权或其他问题，请联系笔者（chong2vv@163.com）,笔者将在第一时间删除。本文旨在研究学习使用，禁止用做商业用途。如有其他媒体、网站或个人从本网下载、连接或以其他形式的复制发表、使用所产生的版权等法律问题本站（本人）均不承担责任。</h5><h5 id="因为此系列文章为笔记，因此有些地方会按照自己的理解来写，同时由于笔者是做iOS开发的，所以应用的是轻量级的数据库——SQLite，因此笔记中会着重记录SQLite相关知识，记录或理解有错误的地方还望诸君指正，不胜感激。"><a href="#因为此系列文章为笔记，因此有些地方会按照自己的理解来写，同时由于笔者是做iOS开发的，所以应用的是轻量级的数据库——SQLite，因此笔记中会着重记录SQLite相关知识，记录或理解有错误的地方还望诸君指正，不胜感激。" class="headerlink" title="因为此系列文章为笔记，因此有些地方会按照自己的理解来写，同时由于笔者是做iOS开发的，所以应用的是轻量级的数据库——SQLite，因此笔记中会着重记录SQLite相关知识，记录或理解有错误的地方还望诸君指正，不胜感激。"></a>因为此系列文章为笔记，因此有些地方会按照自己的理解来写，同时由于笔者是做iOS开发的，所以应用的是轻量级的数据库——SQLite，因此笔记中会着重记录SQLite相关知识，记录或理解有错误的地方还望诸君指正，不胜感激。</h5><h4 id="10-分组数据"><a href="#10-分组数据" class="headerlink" title="10.分组数据"></a>10.分组数据</h4><p>分组数据涉及到两个新的SELECT语句子句：<code>GROUP BY</code>子句和<code>HAVING</code>子句。<br>在之前的学习中可以得知使用SQL聚集函数可以汇总数据。但是目前所有的计算都是在表的所有数据或匹配特定的WHERE子句的数据上进行的。但是，如果要返回每个不同类型下的产品数目该怎么办呢？比如说每个供应商提供的产品数目？那么就要用到分组了。</p>
+<p>分组使用SELECT语句的<code>GROUP BY</code>子句建立的。例如：</p>
+<a id="more"></a>
+<pre><code>SELECT vend_id , COUNT(*) AS num_prods FROM Products GROUP BY vend_id;
+</code></pre><p>他就会返回每个供应商所提供的count数。也就是说他会根据每个vend_id计算而不是针对于整个表计算了。</p>
+<p>那么，使用<code>GROUP BY</code>子句前有什么要注意的呢？如下：</p>
+<blockquote>
+<ul>
+<li>GROUP BY 子句可以包含任意数目的列，因而可以对分组进行嵌套，更细致的进行数据分组。</li>
+<li>如果在GROUP BY 子句中嵌套了分组，数据将在最后指定的分组上进行汇总。换句话说，在建立分组时，指定的所有列都一起计算（所以不能从个别的列取回数据）。</li>
+<li>GROUP BY子句中列出的每一列都必须是检索列或有效的表达式（但不能是聚集函数）。如果在SELECT中使用表达式，则必须在GROUP BY子句中指定相同的表达式。不能使用别名。</li>
+<li>大多数SQL实现不允许GROUP BY列带有长度可变的数据类型（如文本或备注型字段）。</li>
+<li>除聚集计算语句外，SELECT语句中的每一列都必须在GROUP BY子句中给出。</li>
+<li>如果分组列中包含具有NULL值的行，则NULL将作为一个分组返回。如果列中有多行NULL值，它们将分为一组。</li>
+<li>GROUP BY子句必须出现在WHERE子句之后，ORDER BY子句之前。</li>
+</ul>
+</blockquote>
+<p>以上为使用GROUP BY子句时要注意的。同时需要注意的是，有的SQL实现允许根据SELECT列表中的位置指定GROUP BY的列。例如<em>GROUP BY 2,1</em>可以先选择第二个列分组，然后在按第一个分组。不过并非所有SQL都支持，所以要注意这块。</p>
+<p><strong>过滤分组</strong></p>
+<p>在SQL中除了能用GROUP BY分组数据之外，SQL还允许过滤分组，规定包括哪些分组，排除哪些分组。例如：你可能想要列出至少有两个订单的所有顾客。为此，必须基于完整的分组而不是个别的进行过滤。因此，在这种场景下，WHERE已经不适用了，那么接下来介绍另一个子句——<code>HAVING</code>。事实上，目前为止所学过的所有类型的WHERE子句都可以用HAVING来代替。唯一差别是，<code>WHERE</code>过滤<code>行</code>，而<code>HAVING</code>过滤分组。</p>
+<p>例：</p>
+<pre><code>SELECT cust_id, COUNT(*) AS orders FROM Orders GROUP BY cust_id HAVING COUNT(*) &gt;= 2;
+</code></pre><p>是不是有一种很熟悉的感觉，就像WHERE一样呢？那么我们来看一下HAVING和WHERE的差别：</p>
+<p>WHERE在数据分组前进行过滤，HAVING在数据分组后进行过滤。这是一个重要的区别，WHERE排除的行不包括在分组中。这可能会改变计算值，从而影响HAVING子句中基于这些值过滤掉的分组。</p>
+<p>那么可以不可以两个同时使用呢？答案是可以。再次举个例子：列出具有两个以上商品，切其价格大于等于四的供应商：</p>
+<pre><code>SELECT vend_id , COUNT(*) AS num_prods FROM Products WHERE prod_price &gt;=4 GROUP BY vend_id HAVING COUNT(*) &gt;= 2;
+</code></pre><p>这段语句先使用了聚集函数的基本SELECT语句。WHERE子句过滤掉所有prod_price至少为4的行，然后按vend_id进行分组数据，HAVING子句过滤计数为2或2以上的分组。</p>
+<p>小提示：<em>使用HAVING时应该结合GROUP BY子句，而WHERE子句用于标准的行级过滤。</em></p>
+<h5 id="延伸——GROUP-BY-与-ORDER-BY-（分组与排序）"><a href="#延伸——GROUP-BY-与-ORDER-BY-（分组与排序）" class="headerlink" title="延伸——GROUP BY 与 ORDER BY （分组与排序）"></a>延伸——GROUP BY 与 ORDER BY （分组与排序）</h5><p>GROUP BY 与 ORDER BY经常完成相同的工作，但它们非常的不同。我们来看一下它们的差异：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ORDER BY</th>
+<th style="text-align:center">GROUP BY </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> 对产生的输出排序</td>
+<td style="text-align:center">对行分组，但输出的可能不是分组的顺序</td>
+</tr>
+<tr>
+<td style="text-align:center"> 任意列都可以使用（甚至非选择的列也可以使用）</td>
+<td style="text-align:center">只可能使用选择列或表达式列，而且必须使用每个选择列表达式</td>
+</tr>
+<tr>
+<td style="text-align:center">不一定需要</td>
+<td style="text-align:center">如果与聚集函数一起使用列（或表达式），则必须使用</td>
+</tr>
+</tbody>
+</table>
+<p>小提示：一般在使用<code>GROUP BY</code>子句时，应该也给出<code>ORDER BY</code>子句。这是保证数据正确排序的唯一方法。千万不要仅依赖GROUP BY排序数据。</p>
+<p>例如按订购数目排序的输出的话，我们可以这么写：</p>
+<pre><code>SELECT order_num, COUNT(*) AS items FROM OrderItems GROUP  BY order_num HAVING COUNT(*) &gt;= 3 ORDER BY items,order_num;
+</code></pre><p>写到这里，已经看到了很多SELECT语句中的子句，在使用SELECT是必须遵守次序。如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">子句</th>
+<th style="text-align:center">说明</th>
+<th style="text-align:center">是否必须使用 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> SELECT</td>
+<td style="text-align:center">要返回的列或表达式</td>
+<td style="text-align:center">是</td>
+</tr>
+<tr>
+<td style="text-align:center"> FROM</td>
+<td style="text-align:center">从中检索数据的表</td>
+<td style="text-align:center">仅在从表选择数据时使用</td>
+</tr>
+<tr>
+<td style="text-align:center">WHERE</td>
+<td style="text-align:center">行级过滤</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">GROUP BY</td>
+<td style="text-align:center">分组说明</td>
+<td style="text-align:center">仅在按组计算聚集时使用</td>
+</tr>
+<tr>
+<td style="text-align:center">HAVING</td>
+<td style="text-align:center">组级过滤</td>
+<td style="text-align:center">否</td>
+</tr>
+<tr>
+<td style="text-align:center">ORDER BY</td>
+<td style="text-align:center">输出排序顺序</td>
+<td style="text-align:center">否</td>
+</tr>
+</tbody>
+</table>
+<h4 id="11-使用子查询"><a href="#11-使用子查询" class="headerlink" title="11.使用子查询"></a>11.使用子查询</h4><p>SELECT语句是SQL的查询。我们迄今为止所看到的所有SELECT语句都是简单查询，即从单个数据库表中检索数据的单条语句。</p>
+<p><code>查询</code>：任何SQL语句都是查询。但此术语一般指SELECT语句。</p>
+<p>SQL还允许穿件子查询，即嵌套在其他查询中的查询。</p>
+<p>举一个场景：有一份订单，订单存储在两个表中。每个订单包含订单编号、客户ID、订单日期，在Orders表中存储为一行。各订单的物品存储在相关的OrderItems表中。Orders表不存储顾客信息，只存储顾客ID。顾客的实际信息存储在Customers表中。</p>
+<p>现在，加入需要列出订购物品RGAN01的所有顾客，应该如何检索呢？</p>
+<ol>
+<li>检索包含武平RGAN01的所有订单的编号。</li>
+<li>检索具有前一步骤列出的订单编号的所有顾客的ID。</li>
+<li>检索前一步骤返回的所有顾客ID的顾客信息。</li>
+</ol>
+<p>我们可以这么写：</p>
+<pre><code>SELECT order_num FROM OrderItems WHERE prod_id = &apos;RGAN01&apos;;
+
+SELECT cust_id FROM Orders WHERE order_num IN (20007,20008);
+</code></pre><p>现在，结合这两个查询，我们可以把第一个查询变为子查询：</p>
+<pre><code>SELECT cust_id FROM Orders WHERE order_num IN (SELECT order_num FROM OrderItems WHERE prod_id = &apos;RGAN01&apos;);
+</code></pre><p>东的友情提示：在SELECT语句中，子查询总是从内向外处理。在处理上面的SELECT语句时，DBMS实际上执行了两个操作。</p>
+<p>那么由此也可以了解返回所有顾客ID的顾客信息也可以放在子查询的语句里写：</p>
+<pre><code>SELECT cust_name, cust_contanct FROM Customers WHERE cust_id IN (SELECT cust_id FROM Orders WHERE order_num IN (SELECT order_num FROM OrderItems WHERE prod_id = &apos;RGAN01&apos;));
+</code></pre><p>当然在实际使用中，由于性能限制，不能嵌套太多的子查询。</p>
+<p>注意：作为子查询的SELECT语句只能查询单个列。企图检索多个列将返回错误。</p>
+<h5 id="现在我们来看另一个知识——作为计算字段使用子查询"><a href="#现在我们来看另一个知识——作为计算字段使用子查询" class="headerlink" title="现在我们来看另一个知识——作为计算字段使用子查询"></a>现在我们来看另一个知识——作为计算字段使用子查询</h5><p>直接看两个例子：</p>
+<pre><code>SELECT cust_name, cust_state, (SELECT COUNT(*) FROM Orders WHERE Orders.cust_id = Customers.cust_id) AS orders FROM Customers ORDER BY cust_name;
+
+SELECT cust_name, cust_state,(SELECT COUNT(*) FROM Orders WHERE cust_id = cust_id) AS Orders FROM Customers ORDER BY cust_name;
+</code></pre><p>这两个语句我们可以看出来，第一个使用了完全限定列名，而不只是列名。它指定表名和列名。这样会在使用的时候消除歧义，而第二个直接使用的列名，那么他返回的结果cust_id = cust_id 其实是一个恒等于的（相对于Orders表中），也就是并没有返回我们想要的结果。</p>
+<p>可以看到可以作为计算字段使用子查询，当然子查询在构造这种SELECT语句时极有用，但是必须注意限制有歧义的列。</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/05/24/SQL必知必会学习(五)/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          《SQL必知必会》学习笔记（五）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/05/23/SQL必知必会学习(三)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">《SQL必知必会》学习笔记（三）</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="SQL必知必会学习(四)" data-title="《SQL必知必会》学习笔记（四）" data-url="http://www.chong2vv.com/2016/05/24/SQL必知必会学习(四)/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 七月
+    	</div>
+      	<div class="footer-right">
+      		若水三千,只取一瓢饮
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
