@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://chong2vv.com">
-  <title>Archives | Hexo</title>
+  <title>浅谈Git协作流程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://chong2vv.com/archives/index.html">
+  <meta name="description" content="序本文目的旨在于分享，仅在于提供一些个人的使用方法以及个人工作时的协作流程。 简单的常用命令123456789101112131415161718192021222324252627282930//初始化Gitgit init //远程分支相关，remote//查看远程分支git remote -v //关联远程库地址git remote add origi &amp;apos;远程库地址&amp;apos;//">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈Git协作流程">
+<meta property="og:url" content="http://chong2vv.com/2018/07/29/浅谈Git协作流程/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="序本文目的旨在于分享，仅在于提供一些个人的使用方法以及个人工作时的协作流程。 简单的常用命令123456789101112131415161718192021222324252627282930//初始化Gitgit init //远程分支相关，remote//查看远程分支git remote -v //关联远程库地址git remote add origi &amp;apos;远程库地址&amp;apos;//">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-29T05:20:57.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="浅谈Git协作流程">
+<meta name="twitter:description" content="序本文目的旨在于分享，仅在于提供一些个人的使用方法以及个人工作时的协作流程。 简单的常用命令123456789101112131415161718192021222324252627282930//初始化Gitgit init //远程分支相关，remote//查看远程分支git remote -v //关联远程库地址git remote add origi &amp;apos;远程库地址&amp;apos;//">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,76 +154,166 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-浅谈Git协作流程" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      浅谈Git协作流程
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/浅谈Git协作流程/" class="archive-article-date">
+
+        
+        <a href="/2018/07/29/浅谈Git协作流程/" class="archive-article-date">
   	<time datetime="2018-07-29T05:20:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/浅谈Git协作流程/">浅谈Git协作流程</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="序"><a href="#序" class="headerlink" title="序"></a>序</h3><p>本文目的旨在于分享，仅在于提供一些个人的使用方法以及个人工作时的协作流程。</p>
+<h3 id="简单的常用命令"><a href="#简单的常用命令" class="headerlink" title="简单的常用命令"></a>简单的常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//初始化Git</span><br><span class="line">git init </span><br><span class="line"></span><br><span class="line">//远程分支相关，remote</span><br><span class="line">//查看远程分支</span><br><span class="line">git remote -v </span><br><span class="line">//关联远程库地址</span><br><span class="line">git remote add origi &apos;远程库地址&apos;</span><br><span class="line">//删除远程关联，如果要变更远程库地址，那么需要先清除一下</span><br><span class="line">git remote remove origin</span><br><span class="line">//查看更新</span><br><span class="line">git status </span><br><span class="line">//添加更新（添加方式不唯一）</span><br><span class="line">git add -A</span><br><span class="line">//添加commit</span><br><span class="line">git commit -m&quot;this is a commit&quot;</span><br><span class="line">//推送到远程分支</span><br><span class="line">git push -u origin master(or dev)</span><br><span class="line">//拉取远程分支最新代码</span><br><span class="line">git pull origin master(or dev)</span><br><span class="line">//贮藏</span><br><span class="line">git stash</span><br><span class="line">//查看分支</span><br><span class="line">git branch</span><br><span class="line">//创建新分支并切换到分支</span><br><span class="line">git checkout -b&quot;dev&quot;</span><br><span class="line">//切换到分支</span><br><span class="line">git checkout dev</span><br><span class="line">//merge分支代码</span><br><span class="line">git merge dev</span><br></pre></td></tr></table></figure>
+<p>当然，Git的命令还有很多，本文就不列举。如果想进一步了解Git更多命令行的使用方法，可以直接查看文档：<a href="https://git-scm.com/docs" target="_blank" rel="noopener">Git-命令行</a></p>
+<h3 id="协作方式"><a href="#协作方式" class="headerlink" title="协作方式"></a>协作方式</h3><p>协作方式各家有各家的玩法，下述的协作方式是我们个人的方式。</p>
+<h4 id="master"><a href="#master" class="headerlink" title="master"></a><strong>master</strong></h4><p>主干的<em>master</em>权限应该只保证项目负责人一人持有，同时master永远对应着线上的版本。</p>
+<ul>
+<li>项目的通用配置应该统一由一个人来配置，例如项目中所要应用的第三方框架这些，应该在项目构建的时候就设计好，后续如果需要引用的话，那么为了防止引用冲突，也应该由一个人统一负责引用。</li>
+<li>多人协作时，各自在自己的对应分支开发对应的模块，完成后提交到各自对应的远程分支，然后由负责同学统一做merge，交付测试。版本通过测试上线后再merge到master最为最新的线上版本。</li>
+<li>如果在开发时，线上版本出现问题需要修复，那么可以由负责修复的同学切换到master，之后针对于本版本需要修复的内容，新建一个dev，做master的bug修复，修复成功上线后merge到master，同时，各种分支将master的最新的代码更新到自己所在的开发分支。不要在master上直接做修改，以防出问题而导致master紊乱。</li>
+<li>开发结束后保证分支干净，也就是当开发完成后，本地分支及远程对应分支要及时删除。</li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://chong2vv.com/2018/07/29/浅谈Git协作流程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/23/hello-world/" class="archive-article-date">
-  	<time datetime="2018-07-23T06:22:55.019Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/07/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/23/hello-world/">Hello World</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -242,8 +336,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
